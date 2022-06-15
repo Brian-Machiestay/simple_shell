@@ -25,7 +25,7 @@ int main(__attribute__((unused))int ac, char **av)
 
 
 	statbuf = malloc(sizeof(struct stat));
-	write(1, "[Brian&Max]$ ", 13);
+	write(1, "#Cisfun$ ", 9);
 	line = getline(&str, &n, stdin);
 	*(str + (line - 1)) = '\0';
 	newprog[0] = str;
@@ -37,13 +37,13 @@ int main(__attribute__((unused))int ac, char **av)
 		str_info = lstat(str, statbuf);
 		if (str_info == -1)
 		{
-			write(1, av[0], prog_name_length);
+			write(1, av[ac - 1], prog_name_length);
 			write(1, ": No such file or directory\n", 29);
 		}
 		else
 			executable(newprog[0], newprog);
 
-		write(1, "[Brian&Max]$ ", 13);
+		write(1, "#Cisfun$ ", 9);
 		line = getline(&str, &n, stdin);
 		*(str + (line - 1)) = '\0';
 	}
