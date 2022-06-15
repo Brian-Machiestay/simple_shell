@@ -1,3 +1,4 @@
-Authors:
-- Brian 
-- Maxwell
+Authors and Copyrights
+
+- Brian-Machiestay
+- Duedu MaXwell
