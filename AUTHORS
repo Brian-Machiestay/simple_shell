@@ -1,3 +1,5 @@
-# This file lists all individuals having contributed content to the repository
-- Brian-Machiestay <brianmachiestay@gmail.com>
-- Duedu Maxwell <duedumaxwell43@gmail.com>
+# This file lists all individuals having contributed content to the repository.
+# For how it is generated, see `hack/generate-authors.sh`.
+
+Brian-Machiestay <Brianmachiestay@gmail.com>
+Maxwell <duedumaxwell43@gmail.com>
