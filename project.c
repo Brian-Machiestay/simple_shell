@@ -13,7 +13,7 @@
  * @av: an array of the arguments
  * Return: Always 0.
  */
-int main(__attribute__((unused))int ac, char **av)
+int main(int ac, char **av)
 {
 	int line = 1;
 	size_t n = 0;
@@ -25,7 +25,7 @@ int main(__attribute__((unused))int ac, char **av)
 
 
 	statbuf = malloc(sizeof(struct stat));
-	write(1, "#Cisfun$ ", 9);
+	write(1, "#cisfun$ ", 9);
 	line = getline(&str, &n, stdin);
 	*(str + (line - 1)) = '\0';
 	newprog[0] = str;
@@ -43,7 +43,7 @@ int main(__attribute__((unused))int ac, char **av)
 		else
 			executable(newprog[0], newprog);
 
-		write(1, "#Cisfun$ ", 9);
+		write(1, "#cisfun$ ", 9);
 		line = getline(&str, &n, stdin);
 		*(str + (line - 1)) = '\0';
 	}
