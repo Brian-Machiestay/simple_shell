@@ -1,1 +1,3 @@
-this project is by Brian and Maxwell
+Authors:
+- Brian 
+- Maxwell
