@@ -17,26 +17,10 @@ void non_interactive(int ac, char **av)
 	int prog_name_length;
 
 	statbuf = malloc(sizeof(struct stat));
-	line = getline(&str, &n, stdin);
-	if (line == -1)
-	{
-		freepointers(str, statbuf);
-		return;
-	}
-	*(str + (line - 1)) = '\0';
-	arrayinit(newprog, str);
+	arrayinit(newprog, 3);
 	prog_name_length = strlen(av[0]);
 	while (1)
 	{
-		str_info = lstat(str, statbuf);
-		if (str_info == -1)
-		{
-			write(1, av[ac - 1], prog_name_length);
-			write(1, ": No such file or directory\n", 28);
-		}
-		else
-			executable(newprog[0], newprog);
-
 		line = getline(&str, &n, stdin);
 		if (line == -1)
 		{
@@ -44,5 +28,14 @@ void non_interactive(int ac, char **av)
 			break;
 		}
 		*(str + (line - 1)) = '\0';
+		strseperate(newprog, str);
+		str_info = lstat(newprog[0], statbuf);
+		if (str_info == -1)
+		{
+			write(1, av[ac - 1], prog_name_length);
+			write(1, ": No such file or directory\n", 28);
+		}
+		else
+			executable(newprog);
 	}
 }

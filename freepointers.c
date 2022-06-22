@@ -16,11 +16,12 @@ void freepointers(char *s, struct stat *statbuf)
 /**
  * arrayinit - check the code
  * @s: the array
- * @str: the string
+ * @size: the string
  */
-void arrayinit(char **s, char *str)
+void arrayinit(char **s, int size)
 {
-	s[0] = str;
-	s[1] = NULL;
-	s[2] = NULL;
+	int i = 0;
+
+	while (i < size)
+		s[i++] = NULL;
 }

@@ -14,5 +14,5 @@ int main(int ac, char **av)
 		return (0);
 	}
 	interactive(ac, av);
-	exit(98);
+	return (0);
 }

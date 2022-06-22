@@ -7,17 +7,16 @@
 
 /**
  * executable - check the code
- * @prog: the program to execute
  * @and_args: the program and arguments
  */
-void executable(char *prog, char **and_args)
+void executable(char **and_args)
 {
 	int child;
 	int waitid;
 
 	child = fork();
 	if (child == 0)
-		execve(prog, and_args, NULL);
+		execve(and_args[0], and_args, NULL);
 	else
 		(wait(&waitid));
 }

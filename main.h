@@ -12,10 +12,11 @@
 #include "main.h"
 
 /* functions prototype */
-void arrayinit(char **s, char *str);
-void executable(char *, char **);
+void arrayinit(char **s, int i);
+void executable(char **);
 void freepointers(char *s, struct stat *statbuf);
 void non_interactive(int ac, char **av);
 void interactive(int ac, char **av);
+void strseperate(char **str, char *);
 
 #endif /* MAIN_H */
