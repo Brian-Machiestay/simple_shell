@@ -4,9 +4,10 @@
  * non_interactive - check the code
  * @ac: the no. of args
  * @av: the actual args
+ * @envp: the environ
  */
 
-void non_interactive(int ac, char **av)
+void non_interactive(int ac, char **av, char **envp)
 {
 	int line = 1;
 	size_t n = 0;
@@ -14,11 +15,9 @@ void non_interactive(int ac, char **av)
 	char *newprog[3];
 	struct stat *statbuf;
 	int str_info = 0;
-	int prog_name_length;
 
 	statbuf = malloc(sizeof(struct stat));
 	arrayinit(newprog, 3);
-	prog_name_length = strlen(av[0]);
 	while (1)
 	{
 		line = getline(&str, &n, stdin);
@@ -31,13 +30,14 @@ void non_interactive(int ac, char **av)
 		strseperate(newprog, str);
 		if (newprog[0] == NULL)
 			continue;
+		if (strcmp(newprog[0], "ls") == 0)
+			newprog[0] = "/bin/ls";
 		str_info = lstat(newprog[0], statbuf);
 		if (str_info == -1)
 		{
-			write(1, av[ac - 1], prog_name_length);
-			write(1, ": No such file or directory\n", 28);
+			errormsg(ac, newprog[0], av);
 		}
 		else
-			executable(newprog);
+			executable(newprog, envp);
 	}
 }
