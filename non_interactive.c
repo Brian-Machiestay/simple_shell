@@ -29,6 +29,8 @@ void non_interactive(int ac, char **av)
 		}
 		*(str + (line - 1)) = '\0';
 		strseperate(newprog, str);
+		if (newprog[0] == NULL)
+			continue;
 		str_info = lstat(newprog[0], statbuf);
 		if (str_info == -1)
 		{
